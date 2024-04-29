@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    // Path mapping for TS import statements to JS files
+    "baseUrl": ".",
+    "paths": {
+      "#components/*": ["src/components/*"],
+      "#constants/*": ["src/constants/*"],
+      "#types/*": ["src/types/*"],
+      "#utils/*": ["src/utils/*"],
+      "#hooks/*": ["src/hooks/*"],
+      "#assets/*": ["src/assets/*"],
+      "#views/*": ["src/views/*"],
+      "#contexts/*": ["src/contexts/*"]
+    },
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts", "vite-env.d.ts"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
