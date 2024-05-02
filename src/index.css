@@ -1,3 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* References for @layer updates */
+/* @layer base {
+  Base styles
+  body {
+    font-family: 'Inter', sans-serif;
+    color: #333;
+  }
+}
+
+@layer components {
+  Component-specific styles
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+  }
+}
+
+@layer utilities {
+  Utility classes
+  .text-red {
+    color: #ff0000;
+  }
+} */
+
+/* Reference for @apply updates */
+/* .text-headline-1 {
+  @apply font-extrabold text-[64px] leading-[87px] -tracking-[0.02em] text-[#1D242D];
+} */
+
+@layer base {
+  *,
+  html,
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 5px; /* Thin scrollbar width */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #41c6ae; /* Thumb color */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #edf2f7; /* Track color */
+}

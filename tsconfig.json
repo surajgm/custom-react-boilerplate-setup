@@ -17,14 +17,14 @@
     // Path mapping for TS import statements to JS files
     "baseUrl": ".",
     "paths": {
-      "#components/*": ["src/components/*"],
-      "#constants/*": ["src/constants/*"],
-      "#types/*": ["src/types/*"],
-      "#utils/*": ["src/utils/*"],
-      "#hooks/*": ["src/hooks/*"],
-      "#assets/*": ["src/assets/*"],
-      "#views/*": ["src/views/*"],
-      "#contexts/*": ["src/contexts/*"]
+      "#components/*": ["./src/components/*"],
+      "#constants/*": ["./src/constants/*"],
+      "#types/*": ["./src/types/*"],
+      "#utils/*": ["./src/utils/*"],
+      "#hooks/*": ["./src/hooks/*"],
+      "#assets/*": ["./src/assets/*"],
+      "#views/*": ["./src/views/*"],
+      "#contexts/*": ["./src/contexts/*"]
     },
 
     /* Linting */
