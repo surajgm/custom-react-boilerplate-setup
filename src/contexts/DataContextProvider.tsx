@@ -7,7 +7,7 @@ type ProviderProps = {
 };
 
 export const DataContextProvider = ({ children }: ProviderProps) => {
-  const [slice, setSlice] = useState(SLICES.HOME);
+  const [slice, setSlice] = useState<SLICES | string>(SLICES.HOME);
 
   const dataContextValues = {
     slice,
