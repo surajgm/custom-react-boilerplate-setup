@@ -1,8 +1,9 @@
+import { SLICES } from '#constants/constants';
 import React from 'react';
 
 type DataContextType = {
-  showModules: boolean;
-  setShowModules: React.Dispatch<React.SetStateAction<boolean>>;
+  slice: SLICES | string;
+  setSlice: React.Dispatch<React.SetStateAction<SLICES | string>>;
 };
 
 type MapContextType = {
@@ -10,8 +11,8 @@ type MapContextType = {
 };
 
 const initDataContext: DataContextType = {
-  showModules: false,
-  setShowModules: () => undefined,
+  slice: SLICES.HOME,
+  setSlice: () => undefined,
 };
 
 const initMapContext: MapContextType = {

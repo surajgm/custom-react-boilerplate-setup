@@ -3,15 +3,16 @@ import { useContext } from 'react';
 import { DataContext } from '#contexts/context';
 import EmblemOfNepalLg from '#assets/png/EmblemOfNepalLg.png';
 import { modules } from './dataMapper/dataMapper';
-import { Module } from './components/Module';
+import { ModuleItem } from './components/ModuleItem';
+import { SLICES } from '#constants/constants';
 
 export const Modules = () => {
-  const { setShowModules } = useContext(DataContext);
+  const { setSlice } = useContext(DataContext);
   return (
-    <div className="text-white w-full h-full bg-[#0E6353] py-[84px] px-[116px] flex flex-col gap-[116px]">
+    <div className="w-full h-full bg-primary-100 py-[84px] px-[116px] flex flex-col gap-[116px]">
       <div
         role="button"
-        onClick={() => setShowModules(false)}
+        onClick={() => setSlice(SLICES.HOME)}
         className={clsx('flex gap-3 items-center justify-center self-start')}
       >
         <img
@@ -21,17 +22,24 @@ export const Modules = () => {
         />
         <h1
           className={clsx(
-            'text-white text-[36px] leading-[44px] font-semibold'
+            'text-primary-900 text-[36px] leading-[44px] font-semibold'
           )}
         >
           चन्द्रागिरि नगरपालिका
         </h1>
       </div>
       <div className="flex flex-col gap-9">
-        <h2 className="text-4xl font-semibold">Select a Module</h2>
-        <div className="flex flex-wrap gap-10">
+        <h2 className="text-4xl font-semibold text-primary-900">
+          Select a Module
+        </h2>
+        <div className="flex flex-wrap gap-10 text-white">
           {modules.map((module) => (
-            <Module svg={module.svg} title={module.title} />
+            <ModuleItem
+              key={module.id}
+              svg={module.svg}
+              title={module.title}
+              onClick={() => setSlice(module.title)}
+            />
           ))}
         </div>
       </div>

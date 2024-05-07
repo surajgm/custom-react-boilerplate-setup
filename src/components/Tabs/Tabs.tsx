@@ -1,8 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Tab } from '@headlessui/react';
 import EmblemOfNepal from '#assets/png/EmblemOfNepal.png';
 import clsx from 'clsx';
-import { DataContext } from '#contexts/context';
 
 type TabList = {
   'About the Project': React.ReactNode;
@@ -15,21 +14,19 @@ type TabsProps = {
 };
 
 export const Tabs = ({ tabList }: TabsProps) => {
-  const { setShowModules } = useContext(DataContext);
-
   return (
     <div className="flex flex-col h-full">
       <Tab.Group>
         <header className={clsx('flex justify-between items-center')}>
           <div
-            role="button"
-            onClick={() => setShowModules(false)}
+            // role="button"
+            // onClick={() => setShowModules(false)}
             className={clsx('flex gap-3 items-center justify-center')}
           >
             <img src={EmblemOfNepal} alt="Emblem of Nepal" />
             <h1
               className={clsx(
-                'text-white text-[28px] leading-[44px] font-semibold'
+                'text-primary-900 text-[28px] leading-[44px] font-semibold'
               )}
             >
               चन्द्रागिरि नगरपालिका

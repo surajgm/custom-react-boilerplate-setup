@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { DataContext } from './context';
+import { SLICES } from '#constants/constants';
 
 type ProviderProps = {
   children: React.ReactNode;
 };
 
 export const DataContextProvider = ({ children }: ProviderProps) => {
-  const [showModules, setShowModules] = useState(false);
+  const [slice, setSlice] = useState(SLICES.HOME);
 
   const dataContextValues = {
-    showModules,
-    setShowModules,
+    slice,
+    setSlice,
   };
 
   return (

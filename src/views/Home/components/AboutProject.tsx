@@ -4,16 +4,13 @@ import Unops from '#assets/png/Unops.png';
 import Yilab from '#assets/png/Yilab.png';
 import { useContext } from 'react';
 import { DataContext } from '#contexts/context';
+import { SLICES } from '#constants/constants';
 
 export const AboutProject = () => {
-  const { setShowModules } = useContext(DataContext);
+  const { setSlice } = useContext(DataContext);
   return (
-    <main
-      className={clsx(
-        'px-[68px] py-[155px] h-full text-white flex flex-col gap-24'
-      )}
-    >
-      <article className="max-w-[999px] flex flex-col gap-5">
+    <main className={clsx('px-[68px] py-[155px] h-full flex flex-col gap-24')}>
+      <article className="max-w-[999px] flex flex-col gap-5 text-tgray-900">
         <div>
           <h2 className="text-4xl font-semibold">Cities 4 Women:</h2>
           <h2 className="text-4xl font-semibold">
@@ -33,13 +30,13 @@ export const AboutProject = () => {
           className="mt-3 w-fit"
           size="sm"
           variant="primary"
-          onClick={() => setShowModules(true)}
+          onClick={() => setSlice(SLICES.MODULES)}
         >
           See Visualization
         </Button>
       </article>
       <section className="flex text-lg font-normal text-primary-900 gap-9">
-        <div className="w-[482px] py-6 bg-white opacity-80 rounded-3xl px-9 flex flex-col gap-[10px]">
+        <div className="w-[482px] py-6 bg-primary-300 opacity-80 rounded-3xl px-9 flex flex-col gap-[10px]">
           <img className="w-[150px] h-[40px]" src={Unops} alt="Logo of UNOPS" />
           <address className="not-italic">
             Address: Marmorvej 51, PO Box 2695 2100 Copenhagen, Denmark
@@ -62,7 +59,7 @@ export const AboutProject = () => {
           </span>
           <span>Founded: 1973</span>
         </div>
-        <div className="w-[482px] py-6 bg-white opacity-80 rounded-3xl px-9 flex flex-col gap-[10px]">
+        <div className="w-[482px] py-6 bg-primary-300 opacity-80 rounded-3xl px-9 flex flex-col gap-[10px]">
           <img
             className="w-[205px] h-[40px]"
             src={Yilab}
