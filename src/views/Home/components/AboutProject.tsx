@@ -27,9 +27,7 @@ export const AboutProject = () => {
           spaces, parks, forests, and other natural landscapes.
         </p>
         <Button
-          className="mt-3 w-fit"
-          size="sm"
-          variant="primary"
+          className="mt-3 w-fit btn-primary"
           onClick={() => setSlice(SLICES.MODULES)}
         >
           See Visualization

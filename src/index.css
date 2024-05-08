@@ -13,12 +13,27 @@
   }
 }
 
+@layer base {
+  h1 {
+    @apply text-2xl;
+  }
+  h2 {
+    @apply text-xl;
+  }
+}
+
 @layer components {
   Component-specific styles
   .card {
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 10px;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-5 py-2 font-semibold text-white rounded-full shadow-md bg-violet-500 hover:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75;
   }
 }
 
@@ -39,6 +54,17 @@
   html,
   body {
     font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-500 text-tgray-700 text-sm font-semibold py-[10px] px-[18px] rounded-lg;
+  }
+
+  .btn-dropdown-option {
+    @apply px-2 py-2 text-sm font-medium bg-white rounded-lg text-tgray-700;
   }
 }
 

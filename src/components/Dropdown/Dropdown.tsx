@@ -48,15 +48,11 @@ export const Dropdown = () => {
       >
         <MenuItems
           anchor="bottom start"
-          className="mt-1 border rounded-lg border-tgray-300"
+          className="p-1 mt-1 border rounded-lg border-tgray-300"
         >
           {dropDownValues.map(({ id, label }) => (
             <MenuItem key={id}>
-              <Button
-                variant="dropDown"
-                size="dropDown"
-                className="justify-start bg-white py-[10px] border border-white hover:border-primary-900 w-full text-left"
-              >
+              <Button className="w-full !justify-start hover:text-primary-900 hover:opacity-100 shadow-none btn-dropdown-option">
                 {label}
               </Button>
             </MenuItem>

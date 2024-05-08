@@ -9,7 +9,7 @@ import { SLICES } from '#constants/constants';
 export const Modules = () => {
   const { setSlice } = useContext(DataContext);
   return (
-    <div className="w-full h-full bg-primary-100 py-[84px] px-[116px] flex flex-col gap-[116px]">
+    <div className="w-full h-screen bg-primary-100 py-[84px] px-[116px] flex flex-col gap-[116px]">
       <div
         role="button"
         onClick={() => setSlice(SLICES.HOME)}

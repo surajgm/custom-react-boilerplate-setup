@@ -16,7 +16,7 @@ export const Module = () => {
   };
 
   return (
-    <main className="w-full h-screen">
+    <main className="flex flex-col w-full h-screen">
       <header className="flex items-center gap-5 px-4 py-6 border-b border-tgray-300">
         <img
           role="button"
@@ -29,11 +29,11 @@ export const Module = () => {
           <span className="capitalize">chandragiri municipality</span>
         </h1>
       </header>
-      <article className="flex h-full">
-        <aside className="w-1/3 px-12 py-6 border-r-2 border-pink-700">
+      <article className="flex flex-1">
+        <aside className="w-1/3 px-12 py-6 border-r border-tgray-300">
           {leftPanelHandler(slice)}
         </aside>
-        <section className="w-2/3 border-l-2 border-blue-800">
+        <section className="w-2/3">
           <Map />
         </section>
       </article>
