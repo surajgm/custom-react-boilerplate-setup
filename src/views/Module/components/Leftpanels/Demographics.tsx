@@ -5,6 +5,7 @@ import Refresh from '#assets/svg/Refresh.svg';
 import Download from '#assets/svg/Download.svg';
 import { CustomTreemapChart } from '#components/Charts/CustomTreemapChart';
 import { CustomPieChart } from '#components/Charts/CustomPieChart';
+import { CustomBubbleChart } from '#components/Charts/CustomBubbleChart';
 
 export const Demographics = () => {
   return (
@@ -38,6 +39,7 @@ export const Demographics = () => {
       <div className="flex flex-col">
         <CustomTreemapChart />
         <CustomPieChart />
+        <CustomBubbleChart />
       </div>
     </div>
   );
