@@ -95,21 +95,24 @@ const TreemapContent = ({
   );
 };
 
-export const TreemapChart = () => {
+export const CustomTreemapChart = () => {
   return (
-    <ResponsiveContainer width="100%" height={400}>
-      <Treemap
-        data={treeMapData}
-        dataKey={Object.keys(treeMapData[0]).find((key) => key == 'size')}
-        aspectRatio={4 / 3}
-        stroke="#fff"
-        fill={treeMapData.map((treeValue) => treeValue.color)[0]}
-        content={
-          <TreemapContent
-            colors={treeMapData.map((treeValue) => treeValue.color)}
-          />
-        }
-      ></Treemap>
-    </ResponsiveContainer>
+    <div className="flex flex-col gap-[15px] w-full py-[18px] px-6">
+      <h3 className="text-sm font-bold text-tgray-600">Treemap title</h3>
+      <ResponsiveContainer width="100%" height={400}>
+        <Treemap
+          data={treeMapData}
+          dataKey="size"
+          aspectRatio={4 / 3}
+          stroke="#fff"
+          fill={treeMapData.map((treeValue) => treeValue.color)[0]}
+          content={
+            <TreemapContent
+              colors={treeMapData.map((treeValue) => treeValue.color)}
+            />
+          }
+        ></Treemap>
+      </ResponsiveContainer>
+    </div>
   );
 };

@@ -3,7 +3,8 @@ import { Button } from '#components/Button';
 import { Dropdown } from '#components/Dropdown';
 import Refresh from '#assets/svg/Refresh.svg';
 import Download from '#assets/svg/Download.svg';
-import { TreemapChart } from '#components/Charts/Treemap';
+import { CustomTreemapChart } from '#components/Charts/CustomTreemapChart';
+import { CustomPieChart } from '#components/Charts/CustomPieChart';
 
 export const Demographics = () => {
   return (
@@ -34,8 +35,9 @@ export const Demographics = () => {
           Download
         </Button>
       </div>
-      <div>
-        <TreemapChart />
+      <div className="flex flex-col">
+        <CustomTreemapChart />
+        <CustomPieChart />
       </div>
     </div>
   );

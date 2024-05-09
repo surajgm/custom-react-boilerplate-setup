@@ -30,7 +30,7 @@ export const Module = () => {
         </h1>
       </header>
       <article className="flex flex-1">
-        <aside className="w-1/3 px-12 py-6 border-r border-tgray-300">
+        <aside className="w-1/3 px-12 py-6 overflow-auto border-r border-tgray-300">
           {leftPanelHandler(slice)}
         </aside>
         <section className="w-2/3">
