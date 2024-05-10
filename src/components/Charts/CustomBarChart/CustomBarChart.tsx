@@ -73,7 +73,7 @@ const wardColors = ['#8884d8', '#82ca9d', '#ffc658'];
 // const disabilityKeys = ['totalCount', 'menCount', 'womenCount'];
 // const disabilityColors = ['#8884d8', '#82ca9d', '#ffc658'];
 
-const CustomBarChart = () => {
+export const CustomBarChart = () => {
   return (
     <div className="flex flex-col w-full py-[18px] px-6">
       <h3 className="text-sm font-bold text-tgray-600">
@@ -115,5 +115,3 @@ const CustomBarChart = () => {
     </div>
   );
 };
-
-export default CustomBarChart;

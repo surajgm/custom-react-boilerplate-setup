@@ -7,7 +7,7 @@ import { CustomTreemapChart } from '#components/Charts/CustomTreemapChart';
 import { CustomPieChart } from '#components/Charts/CustomPieChart';
 import { CustomBubbleChart } from '#components/Charts/CustomBubbleChart';
 import { CustomBarNoAxisChart } from '#components/Charts/CustomBarNoAxisChart';
-import { CustomBarChart } from '#components/Charts/CustomBarChart/CustomBarChart';
+import { CustomBarChart } from '#components/Charts/CustomBarChart';
 
 export const Demographics = () => {
   return (
