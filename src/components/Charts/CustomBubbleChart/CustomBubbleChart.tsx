@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Bubble } from '.';
+import { Bubble } from './Bubble';
 
 const bubbleData = [
   {
