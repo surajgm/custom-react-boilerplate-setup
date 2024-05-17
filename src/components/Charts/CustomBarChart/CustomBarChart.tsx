@@ -1,3 +1,4 @@
+import { CustomTooltip } from '#components/CustomTooltip';
 import {
   BarChart,
   Bar,
@@ -7,111 +8,132 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts';
+import { LayoutType } from 'recharts/types/util/types';
 
-const wardsPopData = [
-  {
-    name: 'ward 1',
-    male: 200,
-    female: 300,
-    total: 500,
-  },
-  {
-    name: 'ward 2',
-    male: 200,
-    female: 200,
-    total: 400,
-  },
-  {
-    name: 'ward 3',
-    male: 300,
-    female: 300,
-    total: 600,
-  },
-  {
-    name: 'ward 4',
-    male: 200,
-    female: 300,
-    total: 500,
-  },
-];
+type DataType =
+  | {
+      name: string;
+      male: number;
+      female: number;
+      total: number;
+    }
+  | (
+      | {
+          name: string;
+          totalCount: number;
+          menCount?: undefined;
+          womenCount?: undefined;
+        }
+      | {
+          name: string;
+          menCount: number;
+          totalCount?: undefined;
+          womenCount?: undefined;
+        }
+      | {
+          name: string;
+          womenCount: number;
+          totalCount?: undefined;
+          menCount?: undefined;
+        }
+    )
+  | {
+      name: string;
+      count: number;
+    };
 
-// const disabilityPopData = [
-//   {
-//     name: 'Total Population with Disability',
-//     totalCount: 800,
-//   },
-//   {
-//     name: 'Male Population with Disability',
-//     menCount: 300,
-//   },
-//   {
-//     name: 'Female Population with Disability',
-//     womenCount: 500,
-//   },
-// ];
+type CustomTickStyleProps = {
+  fontWeight?: number;
+  fontSize?: string;
+  color?: string;
+};
 
-// PATTERN TO USE COMPONENT
-{
-  /* <CustomBarChart
-data={wardsPopData}
-keys={['male', 'female', 'total']}
-colors={['#8884d8', '#82ca9d', '#ffc658']}
-/> */
-}
+type BarChartProps = {
+  title: string;
+  width?: string;
+  height?: number;
+  layout?: LayoutType | undefined;
+  data: DataType[];
+  dataKeys?: string[];
+  dataColors: string[];
+  legendLabels?: string[];
+  xAxisType?: 'number' | 'category' | undefined;
+  yAxisType?: 'number' | 'category' | undefined;
+  xAxisDataKey?: string;
+  yAxisDataKey?: string;
+  xAxisTick?: boolean | CustomTickStyleProps;
+  yAxisTick?: boolean | CustomTickStyleProps;
+};
 
-{
-  /* <CustomBarChart
-data={disabilityPopData}
-keys={['totalCount', 'menCount', 'womenCount']}
-colors={['#8884d8', '#82ca9d', '#ffc658']}
-/> */
-}
+const defaultTickStyle = {
+  fontWeight: 600,
+  fontSize: '12px',
+  color: '#1D2939',
+  // display: 'none',
+};
 
-const wardKeys = ['male', 'female', 'total'];
-const wardColors = ['#8884d8', '#82ca9d', '#ffc658'];
-
-// const disabilityKeys = ['totalCount', 'menCount', 'womenCount'];
-// const disabilityColors = ['#8884d8', '#82ca9d', '#ffc658'];
-
-export const CustomBarChart = () => {
+// DEFAULT PROPS VALUE ADJUSTED TO DISPLAY VERTICALLY
+export const CustomBarChart = ({
+  title,
+  width = '100%',
+  height = 400,
+  layout = 'vertical',
+  data,
+  dataKeys = [],
+  dataColors = [],
+  legendLabels,
+  xAxisType = 'number',
+  yAxisType = 'category',
+  xAxisDataKey = '',
+  yAxisDataKey = 'name',
+  xAxisTick = defaultTickStyle,
+  yAxisTick = false,
+}: BarChartProps) => {
   return (
-    <div className="flex flex-col w-full py-[18px] px-6">
-      <h3 className="text-sm font-bold text-tgray-600">
-        Population Distribution by Disability
-      </h3>
-      <div className="flex items-center justify-center">
-        <ResponsiveContainer width="100%" height={300}>
-          <BarChart
-            layout="vertical"
-            data={wardsPopData}
-            margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-          >
+    <div className="relative flex flex-col w-full py-[18px] px-6 gap-[15px]">
+      <h3 className="text-sm font-bold text-tgray-600">{title}</h3>
+      <div className="flex items-center justify-center w-full">
+        <ResponsiveContainer width={width} height={height}>
+          <BarChart layout={layout} data={data}>
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis type="number" />
-            <YAxis dataKey="name" type="category" />
-            <Tooltip />
-            {wardKeys.map((key, index) => (
-              <Bar key={key} dataKey={key} fill={wardColors[index]} />
-            ))}
+            <XAxis dataKey={xAxisDataKey} type={xAxisType} tick={xAxisTick} />
+            <YAxis
+              width={yAxisTick ? 60 : 1}
+              dataKey={yAxisDataKey}
+              type={yAxisType}
+              tick={yAxisTick && defaultTickStyle}
+            />
+            <Tooltip content={CustomTooltip} />
+            {dataKeys.length === 1 ? (
+              <Bar dataKey={dataKeys[0]} fill={dataColors[0]} />
+            ) : (
+              <>
+                {dataKeys.map((key, index) => (
+                  <Bar key={key} dataKey={key} fill={dataColors[index]} />
+                ))}
+              </>
+            )}
           </BarChart>
         </ResponsiveContainer>
       </div>
-
-      <div className="flex flex-wrap items-center gap-x-10 gap-y-5">
-        {wardsPopData.map((value, index) => (
-          <div className="flex items-center gap-1" key={value.name}>
-            <div
-              style={{
-                backgroundColor: wardColors[index],
-              }}
-              className={'size-4 rounded-xl'}
-            />
-            <strong className="text-xs font-medium text-tgray-600">
-              {value.name}
-            </strong>
-          </div>
-        ))}
-      </div>
+      {/* TOOLTIP */}
+      {legendLabels && legendLabels.length > 0 && (
+        <div className="flex flex-wrap items-center gap-x-10 gap-y-5">
+          {legendLabels.map((value, index) => (
+            <div className="flex items-center gap-1" key={value}>
+              <div
+                style={{
+                  backgroundColor: dataColors[index],
+                }}
+                className={'size-4 rounded-xl'}
+              />
+              <strong className="text-xs font-medium capitalize text-tgray-600">
+                {value}
+              </strong>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

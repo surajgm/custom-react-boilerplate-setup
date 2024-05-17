@@ -1,7 +1,7 @@
 import FourDots from '#assets/svg/FourDots.svg';
 import { SLICES } from '#constants/constants';
 import { useContext } from 'react';
-import { Demographics } from './components/Leftpanels';
+import { Demographics } from './components/Leftpanels/Demographics';
 import { Map } from './components/Map';
 import { DataContext } from '#contexts/context';
 
