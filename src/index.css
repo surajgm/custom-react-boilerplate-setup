@@ -60,7 +60,7 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-primary-500 text-tgray-700 text-sm font-semibold py-[10px] px-[18px] rounded-lg;
+    @apply bg-tprimary-500 text-tgray-25 text-sm font-semibold py-[10px] px-[18px] rounded-lg;
   }
 
   .btn-dropdown-option {
@@ -74,7 +74,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #41c6ae; /* Thumb color */
+  background-color: #d1bba6; /* Thumb color */
 }
 
 ::-webkit-scrollbar-track {

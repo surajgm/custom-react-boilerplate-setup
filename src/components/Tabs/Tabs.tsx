@@ -26,7 +26,7 @@ export const Tabs = ({ tabList }: TabsProps) => {
             <img src={EmblemOfNepal} alt="Emblem of Nepal" />
             <h1
               className={clsx(
-                'text-primary-900 text-[28px] leading-[44px] font-semibold'
+                'text-tprimary-600 text-[28px] leading-[44px] font-semibold'
               )}
             >
               चन्द्रागिरि नगरपालिका
@@ -34,7 +34,7 @@ export const Tabs = ({ tabList }: TabsProps) => {
           </div>
           <Tab.List
             className={clsx(
-              'border-2 border-primary-800 bg-primary-700 rounded-[40px] py-2 px-3 flex gap-9 w-fit '
+              ' bg-tprimary-200 rounded-[40px] py-2 px-3 flex gap-9 w-fit '
             )}
           >
             {Object.keys(tabList).map((tabKey) => (
@@ -42,7 +42,7 @@ export const Tabs = ({ tabList }: TabsProps) => {
                 className={({ selected }) =>
                   clsx(
                     'p-4 rounded-[32px] text-lg text-white outline-none',
-                    selected ? 'bg-primary-800' : ''
+                    selected ? 'bg-tprimary-400' : ''
                   )
                 }
                 key={tabKey}

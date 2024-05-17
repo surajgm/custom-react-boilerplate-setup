@@ -9,7 +9,7 @@ import { SLICES } from '#constants/constants';
 export const Modules = () => {
   const { setSlice } = useContext(DataContext);
   return (
-    <div className="w-full h-screen bg-primary-100 py-[84px] px-[116px] flex flex-col gap-[116px]">
+    <div className="w-full h-screen bg-tprimary-100 py-[84px] px-[116px] flex flex-col gap-[116px]">
       <div
         role="button"
         onClick={() => setSlice(SLICES.HOME)}
@@ -22,14 +22,14 @@ export const Modules = () => {
         />
         <h1
           className={clsx(
-            'text-primary-900 text-[36px] leading-[44px] font-semibold'
+            'text-tprimary-600 text-[36px] leading-[44px] font-semibold'
           )}
         >
           चन्द्रागिरि नगरपालिका
         </h1>
       </div>
       <div className="flex flex-col gap-9">
-        <h2 className="text-4xl font-semibold text-primary-900">
+        <h2 className="text-4xl font-semibold text-tprimary-600">
           Select a Module
         </h2>
         <div className="flex flex-wrap gap-10 text-white">

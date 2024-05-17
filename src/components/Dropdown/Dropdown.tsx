@@ -34,7 +34,7 @@ const dropDownValues = [
 export const Dropdown = () => {
   return (
     <Menu>
-      <MenuButton className="flex justify-between items-center gap-2 rounded-lg border border-tgray-300 py-[10px] px-4 text-tgray-700 text-sm font-semibold">
+      <MenuButton className="flex justify-between items-center gap-2 rounded-lg bg-white border border-tgray-300 py-[10px] px-4 text-tgray-700 text-sm font-semibold">
         Select Category
         <img src={ArrrowDown} alt="Arrow down" />
       </MenuButton>
@@ -48,11 +48,11 @@ export const Dropdown = () => {
       >
         <MenuItems
           anchor="bottom start"
-          className="p-1 mt-1 border rounded-lg border-tgray-300"
+          className="w-[215px] p-1 mt-1 bg-white border rounded-lg border-tgray-300"
         >
           {dropDownValues.map(({ id, label }) => (
             <MenuItem key={id}>
-              <Button className="w-full !justify-start hover:text-primary-900 hover:opacity-100 shadow-none btn-dropdown-option">
+              <Button className="w-full text-left !justify-start hover:text-tprimary-500 hover:!opacity-100 shadow-none btn-dropdown-option">
                 {label}
               </Button>
             </MenuItem>

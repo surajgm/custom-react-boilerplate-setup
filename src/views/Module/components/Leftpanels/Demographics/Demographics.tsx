@@ -3,6 +3,7 @@ import { Button } from '#components/Button';
 import { Dropdown } from '#components/Dropdown';
 import Refresh from '#assets/svg/Refresh.svg';
 import Download from '#assets/svg/Download.svg';
+
 import { CustomTreemapChart } from '#components/Charts/CustomTreemapChart';
 import { CustomPieChart } from '#components/Charts/CustomPieChart';
 import { CustomBubbleChart } from '#components/Charts/CustomBubbleChart';
@@ -41,8 +42,8 @@ const gaugeBandsData = [
 
 export const Demographics = () => {
   return (
-    <div className="flex flex-col gap-3">
-      <h2 className="text-4xl font-semibold text-primary-900">Demographics</h2>
+    <div className="flex flex-col gap-3 overflow-auto">
+      <h2 className="text-4xl font-semibold text-tprimary-600">Demographics</h2>
       <p className="text-base text-tgray-700">
         In terms of gender demographics, Chandragiri likely exhibits a
         relatively balanced population distribution between males and females,
@@ -101,7 +102,7 @@ export const Demographics = () => {
           dataColors={rainlineColors}
           legendLabels={rainlineLegends}
         />
-        <CustomGauge value={50} min={0} max={180} bands={gaugeBandsData} />
+        <CustomGauge value={80} min={0} max={180} bands={gaugeBandsData} />
         <CustomStackChart />
         <CustomDualBarChart />
         <CustomBulbHighChart />

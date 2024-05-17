@@ -1,15 +1,18 @@
 import { Button } from '#components/Button';
 import clsx from 'clsx';
 import Unops from '#assets/png/Unops.png';
-import Yilab from '#assets/png/Yilab.png';
+import CitiesAlliance from '#assets/png/Citiesalliance.png';
+import UNhabitat from '#assets/png/UNHabitat.png';
+import StarFlag from '#assets/png/FlagWithStars.png';
 import { useContext } from 'react';
 import { DataContext } from '#contexts/context';
 import { SLICES } from '#constants/constants';
+import Info from '#assets/svg/Info.svg';
 
 export const AboutProject = () => {
   const { setSlice } = useContext(DataContext);
   return (
-    <main className={clsx('px-[68px] py-[155px] h-full flex flex-col gap-24')}>
+    <main className={clsx('px-[68px] pt-[155px] h-full flex flex-col gap-24')}>
       <article className="max-w-[999px] flex flex-col gap-5 text-tgray-900">
         <div>
           <h2 className="text-4xl font-semibold">Cities 4 Women:</h2>
@@ -33,7 +36,7 @@ export const AboutProject = () => {
           See Visualization
         </Button>
       </article>
-      <section className="flex text-lg font-normal text-primary-900 gap-9">
+      {/* <section className="flex text-lg font-normal text-primary-900 gap-9">
         <div className="w-[482px] py-6 bg-primary-300 opacity-80 rounded-3xl px-9 flex flex-col gap-[10px]">
           <img className="w-[150px] h-[40px]" src={Unops} alt="Logo of UNOPS" />
           <address className="not-italic">
@@ -70,6 +73,30 @@ export const AboutProject = () => {
             https://www.youthinnovationlab.org
           </a>
           <span>Founded: 2022</span>
+        </div>
+      </section> */}
+      <section className="flex flex-col px-6 gap-7 py-9 rounded-3xl bg-tprimary-300 max-w-[992px]">
+        <p className="flex gap-2 font-semibold flextext-xl text-tgray-900">
+          <img src={Info} alt="Info icon" />
+          Cities 4 Women: Inclusive and Climate Resilient Urbanization in Nepal
+        </p>
+        <div className="flex flex-wrap items-center gap-6">
+          <img className="w-[150px] h-[40px]" src={Unops} alt="Logo of UNOPS" />
+          <img
+            className="w-[150px] h-[60px]"
+            src={CitiesAlliance}
+            alt="Logo of Cities Alliance"
+          />
+          <img
+            className="w-[150px] h-[50px]"
+            src={UNhabitat}
+            alt="Logo of UN Habitat"
+          />
+          <img
+            className="w-[100px] h-[65px]"
+            src={StarFlag}
+            alt="Flag with stars"
+          />
         </div>
       </section>
     </main>

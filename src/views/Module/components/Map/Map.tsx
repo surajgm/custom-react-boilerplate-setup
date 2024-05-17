@@ -1,3 +1,3 @@
 export const Map = () => {
-  return <section>Section</section>;
+  return <section>Chandragiri Municipality</section>;
 };

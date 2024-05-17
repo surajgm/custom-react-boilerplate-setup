@@ -2,10 +2,10 @@ export enum SLICES {
   HOME = 'Home',
   MODULES = 'Modules',
   DEMOGRAPHICS = 'Demographics',
-  GENDERANDSOCIALINCLUSION = 'Gender and Social Inclusion',
   CLIMATERESILIENCE = 'Climate Resilience',
-  SAFETYANDSECURITY = 'Safety and Security',
-  GOVERNANCEANDDECISIONMAKING = 'Governance and Decision Making',
+  WOMENSSAFETYANDSECURITY = "Women's Safety and Security",
   PUBLICOPENSPACE = 'Public Open Space',
   PUBLICFACILITIES = 'Public Facilities',
+  //   GENDERANDSOCIALINCLUSION = 'Gender and Social Inclusion',
+  //   GOVERNANCEANDDECISIONMAKING = 'Governance and Decision Making',
 }
