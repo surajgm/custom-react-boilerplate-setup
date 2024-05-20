@@ -19,6 +19,9 @@ const stackData = [
     label: 'Not Safe',
   },
 ];
+type StackPercent = {
+  [key: string]: number;
+};
 
 export const CustomStackChart = () => {
   const totalCount = useMemo(() => {
@@ -32,10 +35,13 @@ export const CustomStackChart = () => {
     percent: getPercent(dt.count, totalCount),
   }));
 
-  const stackPercent = stackDataWithPercent.reduce((acc, curr) => {
-    acc[curr.label] = curr.percent;
-    return acc;
-  }, {});
+  const stackPercent = stackDataWithPercent.reduce<StackPercent>(
+    (acc, curr) => {
+      acc[curr.label] = curr.percent;
+      return acc;
+    },
+    {}
+  );
 
   return (
     <div className="relative flex flex-col w-full py-[18px] px-6 gap-[15px]">

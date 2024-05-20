@@ -1,4 +1,4 @@
-import { CustomTooltip } from '#components/CustomTooltip';
+import React from 'react';
 import {
   LineChart,
   Line,
@@ -8,6 +8,7 @@ import {
   Tooltip,
   ReferenceLine,
 } from 'recharts';
+import { CustomTooltip } from '#components/CustomTooltip';
 
 type DataType = {
   name: string;
@@ -28,8 +29,8 @@ const defaultTickStyle = {
   fontWeight: 600,
   fontSize: '12px',
   color: '#1D2939',
-  // display: 'none',
 };
+
 const getDot = (
   props: {
     payload: { name: string };
@@ -37,17 +38,23 @@ const getDot = (
     cy: string | number | undefined;
   },
   color: string
-) =>
-  props.payload.name === 'Jul' ? (
-    <circle
-      cx={props.cx}
-      cy={props.cy}
-      r={6}
-      fill="#1A3A6B"
-      stroke={color}
-      strokeWidth={4}
-    />
-  ) : null;
+): React.ReactElement<SVGElement> => {
+  if (props.payload.name === 'Jul') {
+    return (
+      <circle
+        cx={props.cx}
+        cy={props.cy}
+        r={6}
+        fill="#1A3A6B"
+        stroke={color}
+        strokeWidth={4}
+      />
+    );
+  } else {
+    // Return an empty SVG element if the condition is not met
+    return <svg />;
+  }
+};
 
 export const CustomLineChart = ({
   title,
@@ -83,7 +90,6 @@ export const CustomLineChart = ({
           ))}
         </LineChart>
       </div>
-      {/* TOOLTIP */}
       {legendLabels && legendLabels.length > 0 && (
         <div className="flex flex-wrap items-center gap-x-10 gap-y-5">
           {legendLabels.map((value, index) => (
