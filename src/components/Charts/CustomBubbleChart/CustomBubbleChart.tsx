@@ -4,7 +4,7 @@ import { Bubble } from './Bubble';
 const bubbleData = [
   {
     problem: 'Murder',
-    count: 15,
+    count: 100,
   },
   {
     problem: 'Sexual Assault',
