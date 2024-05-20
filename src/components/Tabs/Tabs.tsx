@@ -23,7 +23,12 @@ export const Tabs = ({ tabList }: TabsProps) => {
             // onClick={() => setShowModules(false)}
             className={clsx('flex gap-3 items-center justify-center')}
           >
-            <img src={EmblemOfNepal} alt="Emblem of Nepal" />
+            <img
+              className="w-[60px] h-[50px]"
+              src={EmblemOfNepal}
+              alt="Emblem of Nepal"
+              loading="lazy"
+            />
             <h1
               className={clsx(
                 'text-tprimary-600 text-[28px] leading-[44px] font-semibold'

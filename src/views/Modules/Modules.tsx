@@ -16,9 +16,10 @@ export const Modules = () => {
         className={clsx('flex gap-3 items-center justify-center self-start')}
       >
         <img
-          className="w-134px h-112px"
+          className="w-[134px] h-[112px]"
           src={EmblemOfNepalLg}
           alt="Emblem of Nepal"
+          loading="lazy"
         />
         <h1
           className={clsx(

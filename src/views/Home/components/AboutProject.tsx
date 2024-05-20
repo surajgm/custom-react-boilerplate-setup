@@ -81,21 +81,29 @@ export const AboutProject = () => {
           Cities 4 Women: Inclusive and Climate Resilient Urbanization in Nepal
         </p>
         <div className="flex flex-wrap items-center gap-6">
-          <img className="w-[150px] h-[40px]" src={Unops} alt="Logo of UNOPS" />
+          <img
+            className="w-[150px] h-[40px]"
+            src={Unops}
+            alt="Logo of UNOPS"
+            loading="lazy"
+          />
           <img
             className="w-[150px] h-[60px]"
             src={CitiesAlliance}
             alt="Logo of Cities Alliance"
+            loading="lazy"
           />
           <img
             className="w-[150px] h-[50px]"
             src={UNhabitat}
             alt="Logo of UN Habitat"
+            loading="lazy"
           />
           <img
             className="w-[100px] h-[65px]"
             src={StarFlag}
             alt="Flag with stars"
+            loading="lazy"
           />
         </div>
       </section>
