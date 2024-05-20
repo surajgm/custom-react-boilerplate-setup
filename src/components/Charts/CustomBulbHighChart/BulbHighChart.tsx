@@ -1,11 +1,13 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Highcharts from 'highcharts';
 import HighchartsPictorial from 'highcharts/modules/pictorial';
 import HighchartsAccessibility from 'highcharts/modules/accessibility';
 
 // Initialize Highcharts modules
-HighchartsPictorial(Highcharts);
-HighchartsAccessibility(Highcharts);
+if (typeof Highcharts === 'object') {
+  HighchartsPictorial(Highcharts);
+  HighchartsAccessibility(Highcharts);
+}
 
 const bulbHighData = [
   {
@@ -34,7 +36,8 @@ export const BulbHighChart = () => {
   useEffect(() => {
     const container = document.getElementById('bulbContainer');
     if (container) {
-      Highcharts.chart(container, {
+      // @ts-expect-error Type error for Highchart first argument issue couldnot be resolved
+      new Highcharts.Chart(container as HTMLElement, {
         chart: {
           type: 'pictorial',
           margin: [40, 0, 10, 0],
@@ -70,7 +73,7 @@ export const BulbHighChart = () => {
           valueSuffix: '%',
         },
         credits: {
-          enabled: false, // Disable Highcharts.com tag
+          enabled: false,
         },
         plotOptions: {
           series: {
