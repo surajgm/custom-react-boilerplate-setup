@@ -2,7 +2,7 @@ import { SLICES } from '#constants/constants';
 import React from 'react';
 
 type DataContextType = {
-  slice: SLICES | string;
+  slice: SLICES;
   setSlice: React.Dispatch<React.SetStateAction<SLICES | string>>;
 };
 

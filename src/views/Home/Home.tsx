@@ -1,6 +1,6 @@
-import clsx from 'clsx';
 import { Tabs } from '#components/Tabs';
-import { tabList } from './dataMapper/dataMapper';
+import clsx from 'clsx';
+import { tabList } from './DataMapper/Mapper';
 
 export const Home = () => {
   return (

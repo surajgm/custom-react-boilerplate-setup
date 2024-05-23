@@ -1,19 +1,25 @@
-import FourDots from '#assets/svg/FourDots.svg';
-import { SLICES } from '#constants/constants';
-import { useContext } from 'react';
-import { Demographics } from './components/Leftpanels/Demographics';
-import { Map } from './components/Map';
-import { DataContext } from '#contexts/context';
 import Download from '#assets/svg/Download.svg';
+import FourDots from '#assets/svg/FourDots.svg';
 import { Button } from '#components/Button';
+import { SLICES } from '#constants/constants';
+import { DataContext } from '#contexts/context';
+import { downloadImage } from '#utils/utils';
+import { useContext, useRef } from 'react';
+import { ClimateResilience } from './Components/Leftpanels/ClimateResilience/ClimateResilience';
+import { Demographics } from './Components/Leftpanels/Demographics';
+import { Map } from './Components/Map';
 
 export const Module = () => {
+  const mapContainerRef = useRef<HTMLDivElement>(null);
+
   const { slice, setSlice } = useContext(DataContext);
 
   const leftPanelHandler = (module: string) => {
     switch (module) {
       case SLICES.DEMOGRAPHICS:
         return <Demographics />;
+      case SLICES.CLIMATERESILIENCE:
+        return <ClimateResilience />;
     }
   };
 
@@ -35,6 +41,7 @@ export const Module = () => {
         <Button
           icon={Download}
           className="!py-2 px-[14px] ml-[12px] text-white gap-2 btn-primary"
+          onClick={() => downloadImage(mapContainerRef)}
         >
           Download Map
         </Button>
@@ -49,7 +56,7 @@ export const Module = () => {
           {leftPanelHandler(slice)}
         </aside>
         <section className="w-2/3 h-full">
-          <Map />
+          <Map mapContainerRef={mapContainerRef} />
         </section>
       </article>
     </main>

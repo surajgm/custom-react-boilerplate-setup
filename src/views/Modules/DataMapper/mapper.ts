@@ -1,8 +1,8 @@
 // import Demographics from '#assets/svgComp/Demographics';
-import { nanoid } from 'nanoid';
-import Demographics from '#assets/svg/Demographics.svg';
 import ClimateResilience from '#assets/svg/ClimateResilience.svg';
+import Demographics from '#assets/svg/Demographics.svg';
 import SafetySecurity from '#assets/svg/SafetySecurity.svg';
+import { nanoid } from 'nanoid';
 // import Transgender from '#assets/svg/Transgender.svg';
 // import Governance from '#assets/svg/Governance.svg';
 import OpenSpace from '#assets/svg/OpenSpace.svg';

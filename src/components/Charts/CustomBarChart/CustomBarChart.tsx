@@ -1,12 +1,12 @@
 import { CustomTooltip } from '#components/CustomTooltip';
 import {
-  BarChart,
   Bar,
+  BarChart,
+  CartesianGrid,
+  ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
 } from 'recharts';
 import { LayoutType } from 'recharts/types/util/types';
 
@@ -40,7 +40,19 @@ type DataType =
   | {
       name: string;
       count: number;
-    };
+    }
+  | (
+      | {
+          name: string;
+          maleCount: number;
+          femaleCount?: undefined;
+        }
+      | {
+          name: string;
+          femaleCount: number;
+          maleCount?: undefined;
+        }
+    );
 
 type CustomTickStyleProps = {
   fontWeight?: number;

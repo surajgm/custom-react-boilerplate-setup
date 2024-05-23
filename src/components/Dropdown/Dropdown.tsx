@@ -1,4 +1,7 @@
+import ArrrowDown from '#assets/svg/ArrowDown.svg';
 import { Button } from '#components/Button';
+import { ClimateResilienceChartKeys } from '#views/Module/Components/Leftpanels/ClimateResilience/DataMapper/ChartMapper';
+import { DemoGraphicChartKeys } from '#views/Module/Components/Leftpanels/Demographics/DataMapper/ChartMapper';
 import {
   Menu,
   MenuButton,
@@ -6,37 +9,32 @@ import {
   MenuItems,
   Transition,
 } from '@headlessui/react';
-import { nanoid } from 'nanoid';
-import ArrrowDown from '#assets/svg/ArrowDown.svg';
+import clsx from 'clsx';
 
-const dropDownValues = [
-  {
-    id: nanoid(),
-    label: 'Population Distribution by Gender',
-  },
-  {
-    id: nanoid(),
-    label: 'Population Distribution by Ward ',
-  },
-  {
-    id: nanoid(),
-    label: 'Ethnicity',
-  },
-  {
-    id: nanoid(),
-    label: 'Disability',
-  },
-  {
-    id: nanoid(),
-    label: 'Family Head Household Distribution by Age',
-  },
-];
-export const Dropdown = () => {
+export type ChartKeys =
+  | 'Population Distribution by Sex'
+  | 'Population Distribution by Ward'
+  | 'Population Distribution by literacy rate'
+  | 'Population Distribution by Ethnicity'
+  | 'Population Distribution by Disability'
+  | 'Family Head Household Distribution by Age';
+
+type DropdownProps = {
+  chart: DemoGraphicChartKeys | ClimateResilienceChartKeys | 'All';
+  setChart: React.Dispatch<
+    React.SetStateAction<
+      DemoGraphicChartKeys | ClimateResilienceChartKeys | 'All'
+    >
+  >;
+  data: DemoGraphicChartKeys[] | ClimateResilienceChartKeys[];
+};
+
+export const Dropdown = ({ chart, setChart, data }: DropdownProps) => {
   return (
     <Menu>
       <MenuButton className="flex justify-between items-center gap-2 rounded-lg bg-white border border-tgray-300 py-[10px] px-4 text-tgray-700 text-sm font-semibold">
         Select Category
-        <img src={ArrrowDown} alt="Arrow down" />
+        <img className="size-[12px]" src={ArrrowDown} alt="Arrow down" />
       </MenuButton>
       <Transition
         enter="transition ease-out duration-75"
@@ -50,11 +48,20 @@ export const Dropdown = () => {
           anchor="bottom start"
           className="w-[215px] p-1 mt-1 bg-white border rounded-lg border-tgray-300"
         >
-          {dropDownValues.map(({ id, label }) => (
-            <MenuItem key={id}>
-              <Button className="w-full text-left !justify-start hover:text-tprimary-500 hover:!opacity-100 shadow-none btn-dropdown-option">
-                {label}
-              </Button>
+          {data.map((dataItem) => (
+            <MenuItem key={dataItem}>
+              {({ focus }) => (
+                <Button
+                  className={clsx(
+                    'w-full text-left !justify-start hover:!opacity-100 shadow-none btn-dropdown-option',
+                    focus && 'text-tprimary-500',
+                    chart === dataItem && 'text-tprimary-500'
+                  )}
+                  onClick={() => setChart(dataItem)}
+                >
+                  {dataItem}
+                </Button>
+              )}
             </MenuItem>
           ))}
         </MenuItems>

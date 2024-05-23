@@ -1,5 +1,5 @@
-import React from 'react';
 import clsx from 'clsx';
+import React from 'react';
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   icon?: string;
@@ -18,7 +18,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {props.children && <span>{props.children}</span>}
-        {icon && <img src={icon} alt="Button icon" />}
+        {icon && <img className="size-[15px]" src={icon} alt="Button icon" />}
       </button>
     );
   }

@@ -1,13 +1,13 @@
-import { Button } from '#components/Button';
-import clsx from 'clsx';
-import Unops from '#assets/png/Unops.png';
 import CitiesAlliance from '#assets/png/Citiesalliance.png';
-import UNhabitat from '#assets/png/UNHabitat.png';
 import StarFlag from '#assets/png/FlagWithStars.png';
-import { useContext } from 'react';
-import { DataContext } from '#contexts/context';
-import { SLICES } from '#constants/constants';
+import UNhabitat from '#assets/png/UNHabitat.png';
+import Unops from '#assets/png/Unops.png';
 import Info from '#assets/svg/Info.svg';
+import { Button } from '#components/Button';
+import { SLICES } from '#constants/constants';
+import { DataContext } from '#contexts/context';
+import clsx from 'clsx';
+import { useContext } from 'react';
 
 export const AboutProject = () => {
   const { setSlice } = useContext(DataContext);

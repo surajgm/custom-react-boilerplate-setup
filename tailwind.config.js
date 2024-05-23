@@ -42,5 +42,16 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    // function ({ addUtilities }) {
+    //   addUtilities({
+    //     '.border-gradient': {
+    //       borderWidth: '8px',
+    //       borderStyle: 'solid',
+    //       borderImage:
+    //         'linear-gradient(to right, #0FA61E 25%, #DCD41A 25%, #DCD41A 50%, #DCD41A 75%, #D13333 75%) 1',
+    //     },
+    //   });
+    // },
+  ],
 };

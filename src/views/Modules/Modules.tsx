@@ -1,10 +1,10 @@
+import EmblemOfNepalLg from '#assets/png/EmblemOfNepalLg.png';
+import { SLICES } from '#constants/constants';
+import { DataContext } from '#contexts/context';
 import clsx from 'clsx';
 import { useContext } from 'react';
-import { DataContext } from '#contexts/context';
-import EmblemOfNepalLg from '#assets/png/EmblemOfNepalLg.png';
-import { modules } from './dataMapper/dataMapper';
-import { ModuleItem } from './components/ModuleItem';
-import { SLICES } from '#constants/constants';
+import { ModuleItem } from './Components/ModuleItem';
+import { modules } from './DataMapper/mapper';
 
 export const Modules = () => {
   const { setSlice } = useContext(DataContext);

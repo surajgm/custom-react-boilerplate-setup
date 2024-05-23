@@ -9,59 +9,25 @@ import {
   YAxis,
 } from 'recharts';
 
-const populationData = [
-  {
-    name: '<14',
-    male: 1800,
-    female: 2400,
-  },
-  {
-    name: '15-19',
-    male: 1500,
-    female: 2600,
-  },
-  {
-    name: '20-29',
-    male: 1200,
-    female: 2100,
-  },
-  {
-    name: '30-39',
-    male: 1500,
-    female: 2600,
-  },
-  {
-    name: '40-49',
-    male: 3200,
-    female: 2200,
-  },
-  {
-    name: '50-59',
-    male: 3500,
-    female: 1000,
-  },
-  {
-    name: '60-69',
-    male: 2000,
-    female: 700,
-  },
-  {
-    name: '>70',
-    male: 500,
-    female: 400,
-  },
-];
+type DataType = {
+  name: string;
+  male: number;
+  female: number;
+};
 
-export const CustomDualBarChart = () => {
+type DualBarProps = {
+  title: string;
+  data: DataType[];
+};
+
+export const CustomDualBarChart = ({ title, data }: DualBarProps) => {
   return (
     <div className="relative flex flex-col w-full py-[18px] px-6 gap-[15px]">
-      <h3 className="text-sm font-bold text-tgray-600">
-        Family Head Household Distribution by Age
-      </h3>
+      <h3 className="text-sm font-bold text-tgray-600">{title}</h3>
       <div className="flex w-full">
         <div className="w-1/2">
           <ResponsiveContainer width="100%" height={300}>
-            <BarChart layout="vertical" data={populationData}>
+            <BarChart layout="vertical" data={data}>
               <XAxis type="number" reversed hide />
               <YAxis
                 dataKey="name"
@@ -92,7 +58,7 @@ export const CustomDualBarChart = () => {
         </div>
         <div className="w-1/2">
           <ResponsiveContainer width="100%" height="100%">
-            <BarChart layout="vertical" data={populationData}>
+            <BarChart layout="vertical" data={data}>
               <XAxis hide type="number" />
               <YAxis
                 dataKey="name"

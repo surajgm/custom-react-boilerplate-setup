@@ -1,5 +1,15 @@
 import { ResponsiveContainer, Treemap } from 'recharts';
 
+type DataType = {
+  name: string;
+  size: number;
+  color: string;
+};
+type TreeMapProps = {
+  title: string;
+  data: DataType[];
+};
+
 type TreemapContentProps = {
   x?: number | undefined;
   y?: number | undefined;
@@ -13,34 +23,6 @@ type TreemapContentProps = {
   name?: string | undefined;
   size?: number | undefined;
 };
-
-const treeMapData = [
-  {
-    name: 'Highway',
-    size: 25,
-    color: '#307D6F',
-  },
-  {
-    name: 'Road',
-    size: 25,
-    color: '#389E8C',
-  },
-  {
-    name: 'Alley',
-    size: 10,
-    color: '#56D9C1',
-  },
-  {
-    name: 'Inside Open Public Space',
-    size: 30,
-    color: '#77EDD8',
-  },
-  {
-    name: 'Other',
-    size: 10,
-    color: '#92F6DE',
-  },
-];
 const TreemapContent = ({
   root,
   x,
@@ -95,21 +77,19 @@ const TreemapContent = ({
   );
 };
 
-export const CustomTreemapChart = () => {
+export const CustomTreemapChart = ({ data, title }: TreeMapProps) => {
   return (
     <div className="flex flex-col gap-[15px] w-full py-[18px] px-6">
-      <h3 className="text-sm font-bold text-tgray-600">Treemap title</h3>
+      <h3 className="text-sm font-bold text-tgray-600">{title}</h3>
       <ResponsiveContainer width="100%" height={400}>
         <Treemap
-          data={treeMapData}
+          data={data}
           dataKey="size"
           aspectRatio={4 / 3}
           stroke="#fff"
-          fill={treeMapData.map((treeValue) => treeValue.color)[0]}
+          fill={data.map((treeValue) => treeValue.color)[0]}
           content={
-            <TreemapContent
-              colors={treeMapData.map((treeValue) => treeValue.color)}
-            />
+            <TreemapContent colors={data.map((treeValue) => treeValue.color)} />
           }
         ></Treemap>
       </ResponsiveContainer>
