@@ -4,6 +4,7 @@ import Refresh from '#assets/svg/Refresh.svg';
 import { Button } from '#components/Button';
 import { Dropdown } from '#components/Dropdown';
 
+import { CustomBulbHighChart } from '#components/Charts/CustomBulbHighChart';
 import { DataContext } from '#contexts/context';
 import { downloadImage } from '#utils/utils';
 import { useContext, useRef, useState } from 'react';
@@ -13,14 +14,6 @@ import {
   charts,
   dropDownKeys,
 } from './DataMapper/ChartMapper';
-
-// const gaugeBandsData = [
-//   { start: 0, end: 36, color: '#57BF20', label: 'Low' },
-//   { start: 36, end: 72, color: '#B2CB1B' },
-//   { start: 72, end: 108, color: '#DDD51B', label: 'Medium' },
-//   { start: 108, end: 144, color: '#D78A26' },
-//   { start: 144, end: 180, color: '#D23433', label: 'High' },
-// ];
 
 export const Demographics = () => {
   const [chart, setChart] = useState<DemoGraphicChartKeys | 'All'>('All');
@@ -48,7 +41,11 @@ export const Demographics = () => {
         </span>
       </div>
       <div className="flex items-center gap-3">
-        <Dropdown chart={chart} setChart={setChart} data={dropDownKeys} />
+        <Dropdown<DemoGraphicChartKeys>
+          chart={chart}
+          setChart={setChart}
+          data={dropDownKeys}
+        />
         <Button
           icon={Refresh}
           className="!p-2 btn-primary"
@@ -81,9 +78,9 @@ export const Demographics = () => {
         />
         <CustomGauge value={80} min={0} max={180} bands={gaugeBandsData} />
         <CustomStackChart />
-        <CustomBulbHighChart />
         <CustomScaleChart />
-        <CustomBarWithIcon /> */}
+      <CustomBarWithIcon /> */}
+        <CustomBulbHighChart />
       </div>
     </div>
   );

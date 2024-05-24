@@ -12,7 +12,7 @@ import {
 
 export type ClimateResilienceChartKeys = 'Rainfall' | 'Temperature';
 
-export const charts: Record<ChartKeys, JSX.Element> = {
+export const charts: Record<ClimateResilienceChartKeys, JSX.Element> = {
   Rainfall: (
     <CustomLineChart
       title="Rainfall"

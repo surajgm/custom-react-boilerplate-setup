@@ -1,7 +1,8 @@
-import { useEffect } from 'react';
 import Highcharts from 'highcharts';
-import HighchartsPictorial from 'highcharts/modules/pictorial';
 import HighchartsAccessibility from 'highcharts/modules/accessibility';
+import HighchartsPictorial from 'highcharts/modules/pictorial';
+import { useEffect } from 'react';
+import { BulbHighChartProps } from './CustomBulbHighChart';
 
 // Initialize Highcharts modules
 if (typeof Highcharts === 'object') {
@@ -9,30 +10,7 @@ if (typeof Highcharts === 'object') {
   HighchartsAccessibility(Highcharts);
 }
 
-const bulbHighData = [
-  {
-    name: 'Solar',
-    data: [25],
-    color: '#77EDD8',
-  },
-  {
-    name: 'Battery',
-    data: [20],
-    color: '#4662EA',
-  },
-  {
-    name: 'Electricity',
-    data: [30],
-    color: '#389E8B',
-  },
-  {
-    name: 'Others',
-    data: [25],
-    color: '#D78A26',
-  },
-];
-
-export const BulbHighChart = () => {
+export const BulbHighChart = ({ title, data }: BulbHighChartProps) => {
   useEffect(() => {
     const container = document.getElementById('bulbContainer');
     if (container) {
@@ -42,9 +20,9 @@ export const BulbHighChart = () => {
           type: 'pictorial',
           margin: [40, 0, 10, 0],
         },
-        colors: bulbHighData.map((bulb) => bulb.color),
+        colors: data.map((bulb) => bulb.color),
         title: {
-          text: 'Street Light Powered',
+          text: title,
           align: 'left',
           style: {
             color: '#475467',
@@ -95,7 +73,7 @@ export const BulbHighChart = () => {
             ],
           },
         },
-        series: bulbHighData,
+        series: data,
       });
     }
   }, []);

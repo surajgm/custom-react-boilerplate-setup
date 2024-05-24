@@ -8,11 +8,16 @@ type CustomizedLabelProps = {
   value: number;
 };
 
-const pieData = [
-  { name: 'Functional', value: 50, color: '#0E9B46' },
-  { name: 'Partial Functioning', value: 30, color: '#2F796C' },
-  { name: 'Non Functional', value: 20, color: '#54D2BB' },
-];
+type DataType = {
+  name: string;
+  value: number;
+  color: string;
+};
+
+type PieChartProps = {
+  title: string;
+  data: DataType[];
+};
 
 const RADIAN = Math.PI / 180;
 
@@ -40,14 +45,14 @@ const renderCustomizedLabel = ({
   );
 };
 
-export const CustomPieChart = () => {
+export const CustomPieChart = ({ title, data }: PieChartProps) => {
   return (
     <div className="flex flex-col w-full py-[18px] px-6">
-      <h3 className="text-sm font-bold text-tgray-600">Pie chart title</h3>
+      <h3 className="text-sm font-bold text-tgray-600">{title}</h3>
       <div className="flex items-center justify-center">
         <PieChart width={400} height={400}>
           <Pie
-            data={pieData}
+            data={data}
             cx="50%"
             cy="50%"
             label={renderCustomizedLabel}
@@ -59,14 +64,14 @@ export const CustomPieChart = () => {
             fill="#54D2BB"
             dataKey="value"
           >
-            {pieData.map((pieValue, index) => (
+            {data.map((pieValue, index) => (
               <Cell key={`cell-${index}`} fill={pieValue.color} />
             ))}
           </Pie>
         </PieChart>
       </div>
       <div className="flex items-center justify-center gap-10">
-        {pieData.map((pieValue) => (
+        {data.map((pieValue) => (
           <div className="flex items-center gap-1" key={pieValue.name}>
             <div
               style={{

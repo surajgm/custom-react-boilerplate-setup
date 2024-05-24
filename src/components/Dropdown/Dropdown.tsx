@@ -1,7 +1,5 @@
 import ArrrowDown from '#assets/svg/ArrowDown.svg';
 import { Button } from '#components/Button';
-import { ClimateResilienceChartKeys } from '#views/Module/Components/Leftpanels/ClimateResilience/DataMapper/ChartMapper';
-import { DemoGraphicChartKeys } from '#views/Module/Components/Leftpanels/Demographics/DataMapper/ChartMapper';
 import {
   Menu,
   MenuButton,
@@ -11,25 +9,17 @@ import {
 } from '@headlessui/react';
 import clsx from 'clsx';
 
-export type ChartKeys =
-  | 'Population Distribution by Sex'
-  | 'Population Distribution by Ward'
-  | 'Population Distribution by literacy rate'
-  | 'Population Distribution by Ethnicity'
-  | 'Population Distribution by Disability'
-  | 'Family Head Household Distribution by Age';
-
-type DropdownProps = {
-  chart: DemoGraphicChartKeys | ClimateResilienceChartKeys | 'All';
-  setChart: React.Dispatch<
-    React.SetStateAction<
-      DemoGraphicChartKeys | ClimateResilienceChartKeys | 'All'
-    >
-  >;
-  data: DemoGraphicChartKeys[] | ClimateResilienceChartKeys[];
+type DropdownProps<T> = {
+  chart: T | 'All';
+  setChart: React.Dispatch<React.SetStateAction<T | 'All'>>;
+  data: T[];
 };
 
-export const Dropdown = ({ chart, setChart, data }: DropdownProps) => {
+export const Dropdown = <T extends React.ReactNode>({
+  chart,
+  setChart,
+  data,
+}: DropdownProps<T>) => {
   return (
     <Menu>
       <MenuButton className="flex justify-between items-center gap-2 rounded-lg bg-white border border-tgray-300 py-[10px] px-4 text-tgray-700 text-sm font-semibold">
@@ -48,8 +38,8 @@ export const Dropdown = ({ chart, setChart, data }: DropdownProps) => {
           anchor="bottom start"
           className="w-[215px] p-1 mt-1 bg-white border rounded-lg border-tgray-300"
         >
-          {data.map((dataItem) => (
-            <MenuItem key={dataItem}>
+          {data.map((dataItem, idx) => (
+            <MenuItem key={idx}>
               {({ focus }) => (
                 <Button
                   className={clsx(

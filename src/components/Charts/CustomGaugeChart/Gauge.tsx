@@ -12,7 +12,7 @@ type GaugeProps = {
   bands: Band[];
 };
 
-export const CustomGauge = ({ value, min, max, bands }: GaugeProps) => {
+export const Gauge = ({ value, min, max, bands }: GaugeProps) => {
   const cx = 100;
   const cy = 100;
   // INCREASE THE RADIUS TO INCREASE OVERALL SIZE OF GAUGE
