@@ -2,35 +2,28 @@ import { getPercent } from '#utils/utils';
 import { useMemo } from 'react';
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from 'recharts';
 
-const stackData = [
-  {
-    color: '#1A3A6B',
-    count: 4567,
-    label: 'Safety',
-  },
-  {
-    color: '#FEC84B',
-    count: 2021,
-    label: 'Partially Safe',
-  },
-  {
-    color: '#FF6D6D',
-    count: 976,
-    label: 'Not Safe',
-  },
-];
+type DataType = {
+  color: string;
+  count: number;
+  label: string;
+};
+
+type StackProps = {
+  title: string;
+  data: DataType[];
+};
 type StackPercent = {
   [key: string]: number;
 };
 
-export const CustomStackChart = () => {
+export const CustomStackChart = ({ title, data }: StackProps) => {
   const totalCount = useMemo(() => {
-    return stackData.reduce((acc, curr) => {
+    return data.reduce((acc, curr) => {
       return acc + curr.count;
     }, 0);
   }, []);
 
-  const stackDataWithPercent = stackData.map((dt) => ({
+  const stackDataWithPercent = data.map((dt) => ({
     ...dt,
     percent: getPercent(dt.count, totalCount),
   }));
@@ -45,9 +38,7 @@ export const CustomStackChart = () => {
 
   return (
     <div className="relative flex flex-col w-full py-[18px] px-6 gap-[15px]">
-      <h3 className="text-sm font-bold text-tgray-600">
-        Availability of Sitting Facilities
-      </h3>
+      <h3 className="text-sm font-bold text-tgray-600">{title}</h3>
       <div className="flex items-center justify-center w-full">
         <ResponsiveContainer height={16} width={'100%'}>
           <BarChart

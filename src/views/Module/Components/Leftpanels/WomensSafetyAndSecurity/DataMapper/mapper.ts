@@ -19,15 +19,15 @@ export const scaleData = [
   },
   {
     title: 'Safety Level During the Day for Men',
-    percent: 60,
+    percent: 38,
   },
   {
     title: 'Safety Level During the Night for Women',
-    percent: 60,
+    percent: 15,
   },
   {
     title: 'Safety Level During the Night for Men',
-    percent: 60,
+    percent: 100,
   },
 ];
 export const legendLabels = ['Safe', 'Partially Safe', 'Not Safe'];
@@ -173,13 +173,58 @@ export const pieData = [
 export const pathwayBarData = [
   {
     name: 'Yes',
-    count: 3000,
+    yesCount: 3000,
   },
   {
     name: 'No',
-    count: 3000,
+    noCount: 3000,
   },
 ];
-export const pathwayLegends = ['Yes', 'No'];
-export const pathwayBarKeys = ['Yes Count', 'No Count'];
-export const pathwayBarColors = ['#AFB5D9', '#FD6F8E'];
+
+export const camerasBarData = [
+  {
+    name: 'Yes',
+    yesCount: 1500,
+  },
+  {
+    name: 'No',
+    noCount: 2000,
+  },
+];
+
+export const securityPersonnelBarData = [
+  {
+    name: 'Yes',
+    yesCount: 3000,
+  },
+  {
+    name: 'No',
+    noCount: 2500,
+  },
+];
+
+export const antiSocialBarData = [
+  {
+    name: 'Yes',
+    yesCount: 3500,
+  },
+  {
+    name: 'No',
+    noCount: 1000,
+  },
+];
+
+export const harrasmentBarData = [
+  {
+    name: 'Yes',
+    yesCount: 500,
+  },
+  {
+    name: 'No',
+    noCount: 2000,
+  },
+];
+
+export const barLegends = ['Yes', 'No'];
+export const barKeys = ['yesCount', 'noCount'];
+export const barColors = ['#AFB5D9', '#FD6F8E'];

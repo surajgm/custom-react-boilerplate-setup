@@ -16,7 +16,7 @@ export const StreetLightLocation = ({ title, data }: LightLocationProps) => {
   return (
     <div className="relative flex flex-col w-full py-[18px] px-6 gap-[15px]">
       <h3 className="text-sm font-bold text-tgray-600">{title}</h3>
-      <div className="flex flex-col w-full gap-8 pb-8">
+      <div className="flex flex-wrap justify-center w-full py-8 gap-y-14 gap-x-8">
         {data.map(({ type, percent, icon, styles }) => (
           <LocationTypeCard
             type={type}

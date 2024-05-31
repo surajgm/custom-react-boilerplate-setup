@@ -1,10 +1,10 @@
-import { useContext } from 'react';
-import clsx from 'clsx';
 import { Home } from '#views/Home/Home';
-import { Modules } from '#views/Modules';
 import { Module } from '#views/Module';
-import { DataContext } from './contexts';
+import { Modules } from '#views/Modules';
+import clsx from 'clsx';
+import { useContext } from 'react';
 import { SLICES } from './constants';
+import { DataContext } from './contexts';
 
 function App() {
   const { slice } = useContext(DataContext);

@@ -20,11 +20,10 @@ export const ClimateResilience = () => {
   const [chart, setChart] = useState<ClimateResilienceChartKeys | 'All'>('All');
   const containerRef = useRef<HTMLDivElement>(null);
   const { slice } = useContext(DataContext);
+  console.log('Context-Climate');
   return (
     <div className="flex flex-col gap-3">
-      <h2 className="text-4xl font-semibold text-tprimary-600">
-        Climate Resilience
-      </h2>
+      <h2 className="text-4xl font-semibold text-tprimary-600">{slice}</h2>
       <p className="text-base text-tgray-700">
         Nepal has an extremely varied and complex climate, driven by uneven
         terrain and regional weather systems. In addition, urban settlements in
@@ -50,7 +49,11 @@ export const ClimateResilience = () => {
         </span>
       </div>
       <div className="flex items-center gap-3">
-        <Dropdown chart={chart} setChart={setChart} data={dropDownKeys} />
+        <Dropdown<ClimateResilienceChartKeys>
+          chart={chart}
+          setChart={setChart}
+          data={dropDownKeys}
+        />
         <Button
           icon={Refresh}
           className="!p-2 btn-primary"

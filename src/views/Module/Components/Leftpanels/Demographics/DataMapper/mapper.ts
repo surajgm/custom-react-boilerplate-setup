@@ -1,32 +1,3 @@
-export const siteBarData = [
-  {
-    name: 'Wheel chair',
-    count: 800,
-  },
-  {
-    name: 'Wide Stretcher',
-    count: 345,
-  },
-  {
-    name: 'Text signature',
-    count: 700,
-  },
-  {
-    name: 'Signs for Danger',
-    count: 40,
-  },
-  {
-    name: 'None',
-    count: 780,
-  },
-  {
-    name: 'Others',
-    count: 400,
-  },
-];
-export const siteBarKey = ['count'];
-export const siteBarColor = ['#41C6AE'];
-
 export const wardsPopBarData = [
   {
     name: 'Ward 1',

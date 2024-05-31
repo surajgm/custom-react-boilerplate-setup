@@ -7,6 +7,9 @@ import { downloadImage } from '#utils/utils';
 import { useContext, useRef } from 'react';
 import { ClimateResilience } from './Components/Leftpanels/ClimateResilience/ClimateResilience';
 import { Demographics } from './Components/Leftpanels/Demographics';
+import { PublicFacilities } from './Components/Leftpanels/PublicFacilities';
+import { PublicOpenSpace } from './Components/Leftpanels/PublicOpenSpace';
+import { WomensSafetyAndSecurity } from './Components/Leftpanels/WomensSafetyAndSecurity';
 import { Map } from './Components/Map';
 
 export const Module = () => {
@@ -20,6 +23,12 @@ export const Module = () => {
         return <Demographics />;
       case SLICES.CLIMATERESILIENCE:
         return <ClimateResilience />;
+      case SLICES.WOMENSSAFETYANDSECURITY:
+        return <WomensSafetyAndSecurity />;
+      case SLICES.PUBLICOPENSPACE:
+        return <PublicOpenSpace />;
+      case SLICES.PUBLICFACILITIES:
+        return <PublicFacilities />;
     }
   };
 

@@ -3,7 +3,7 @@ import React from 'react';
 
 type DataContextType = {
   slice: SLICES;
-  setSlice: React.Dispatch<React.SetStateAction<SLICES | string>>;
+  setSlice: React.Dispatch<React.SetStateAction<SLICES>>;
 };
 
 type MapContextType = {

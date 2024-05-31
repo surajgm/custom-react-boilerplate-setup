@@ -17,12 +17,14 @@ export const CustomBulbHighChart = ({ title, data }: BulbHighChartProps) => {
     <>
       <div className="flex flex-col items-center justify-center">
         <BulbHighChart title={title} data={data} />
-        <div className="ml-[-3px] h-3 border rounded-full w-28 border-tgray-800" />
-        <div className="ml-[-3px] mt-2 h-3 border rounded-full w-[92px] border-tgray-800" />
+        <div className="ml-[-3px] h-[10px] border rounded-full w-20 border-tgray-800" />
+        <div className="ml-[-3px] mt-2 h-[10px] border rounded-full w-16 border-tgray-800" />
       </div>
-      <div className="flex items-center gap-3">
-        <img className="self-start" src={Info} alt="info" />
-        <p className="text-black">Others includes sources such as ...</p>
+      <div className="flex items-center gap-2 mt-4">
+        <img className="self-center size-[14px]" src={Info} alt="info" />
+        <p className="text-sm text-black">
+          Others includes sources such as ...
+        </p>
       </div>
     </>
   );

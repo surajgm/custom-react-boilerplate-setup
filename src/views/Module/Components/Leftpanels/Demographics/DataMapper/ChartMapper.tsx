@@ -28,18 +28,61 @@ export type DemoGraphicChartKeys =
   | 'Population Distribution by Disability'
   | 'Family Head Household Distribution by Age';
 
+type SexBarType =
+  | {
+      name: string;
+      maleCount: number;
+      femaleCount?: undefined;
+    }
+  | {
+      name: string;
+      femaleCount: number;
+      maleCount?: undefined;
+    };
+
+type WardsPopBarType = {
+  name: string;
+  male: number;
+  female: number;
+  total: number;
+};
+
+type DisabilityPopBarType =
+  | {
+      name: string;
+      totalCount: number;
+      menCount?: undefined;
+      womenCount?: undefined;
+    }
+  | {
+      name: string;
+      menCount: number;
+      totalCount?: undefined;
+      womenCount?: undefined;
+    }
+  | {
+      name: string;
+      womenCount: number;
+      totalCount?: undefined;
+      menCount?: undefined;
+    };
+
+const sexBarHeight = 250;
+const disabilityBarHeight = 300;
+
 export const charts: Record<DemoGraphicChartKeys, JSX.Element> = {
   'Population Distribution by Sex': (
-    <CustomBarChart
+    <CustomBarChart<SexBarType>
       title="Population Distribution by Sex"
       data={sexPopBarData}
       dataKeys={sexBarKeys}
       dataColors={sexBarColors}
       legendLabels={sexLegends}
+      height={sexBarHeight}
     />
   ),
   'Population Distribution by Ward': (
-    <CustomBarChart
+    <CustomBarChart<WardsPopBarType>
       title="Population Distribution by Ward"
       data={wardsPopBarData}
       dataKeys={wardBarKeys}
@@ -60,12 +103,13 @@ export const charts: Record<DemoGraphicChartKeys, JSX.Element> = {
     />
   ),
   'Population Distribution by Disability': (
-    <CustomBarChart
+    <CustomBarChart<DisabilityPopBarType>
       title="Population Distribution by Disability"
       data={disabilityPopBarData}
       dataKeys={disabilityBarKeys}
       dataColors={disabilityBarColors}
       legendLabels={disabilityLegends}
+      height={disabilityBarHeight}
     />
   ),
   'Family Head Household Distribution by Age': (

@@ -1,4 +1,5 @@
 import Participant from '#assets/svg/LegendAndFilter/Participant.svg';
+import SexualAssault from '#assets/svg/LegendAndFilter/SexualAssault.svg';
 import SpaceOpen from '#assets/svg/LegendAndFilter/SpaceOpen.svg';
 import StreetLight from '#assets/svg/LegendAndFilter/StreetLight.svg';
 
@@ -62,8 +63,13 @@ export const legendData: Record<
     ],
   },
   [SLICES.WOMENSSAFETYANDSECURITY]: {
-    title: '',
-    data: [],
+    title: 'Womens Safety and Security',
+    data: [
+      {
+        label: 'Sexual Assault',
+        icon: SexualAssault,
+      },
+    ],
   },
   [SLICES.PUBLICOPENSPACE]: {
     title: '',

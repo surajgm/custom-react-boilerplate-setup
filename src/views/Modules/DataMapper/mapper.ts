@@ -7,32 +7,33 @@ import { nanoid } from 'nanoid';
 // import Governance from '#assets/svg/Governance.svg';
 import OpenSpace from '#assets/svg/OpenSpace.svg';
 import PublicFacility from '#assets/svg/PublicFacility.svg';
+import { SLICES } from '#constants/constants';
 
 export const modules = [
   {
     id: nanoid(),
     svg: Demographics,
-    title: 'Demographics',
+    title: SLICES.DEMOGRAPHICS,
   },
   {
     id: nanoid(),
     svg: ClimateResilience,
-    title: 'Climate Resilience',
+    title: SLICES.CLIMATERESILIENCE,
   },
   {
     id: nanoid(),
     svg: SafetySecurity,
-    title: "Womens's Safety and Security",
+    title: SLICES.WOMENSSAFETYANDSECURITY,
   },
   {
     id: nanoid(),
     svg: OpenSpace,
-    title: 'Public Open Space',
+    title: SLICES.PUBLICOPENSPACE,
   },
   {
     id: nanoid(),
     svg: PublicFacility,
-    title: 'Public Facilities',
+    title: SLICES.PUBLICFACILITIES,
   },
   // {
   //   id: nanoid(),

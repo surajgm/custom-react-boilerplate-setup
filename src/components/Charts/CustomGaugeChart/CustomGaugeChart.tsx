@@ -19,14 +19,16 @@ const maximumAngle = 180;
 
 export const CustomGaugeChart = ({ question, value }: GaugeChartProps) => {
   return (
-    <div className="flex flex-wrap items-center justify-between">
+    <div className="flex items-center justify-between">
       <p className="text-base font-semibold text-tgray-800">{question}</p>
-      <Gauge
-        value={value}
-        min={minimumAngle}
-        max={maximumAngle}
-        bands={bandConstructorData}
-      />
+      <div className="flex-1">
+        <Gauge
+          value={value}
+          min={minimumAngle}
+          max={maximumAngle}
+          bands={bandConstructorData}
+        />
+      </div>
     </div>
   );
 };

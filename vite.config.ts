@@ -1,15 +1,23 @@
-import { defineConfig } from 'vite';
-import tsconfigPaths from 'vite-tsconfig-paths';
-import path from 'path';
 import react from '@vitejs/plugin-react';
+import path from 'path';
+import { defineConfig } from 'vite';
 import viteCompression from 'vite-plugin-compression';
+import svgr from 'vite-plugin-svgr';
+import tsconfigPaths from 'vite-tsconfig-paths';
 
 // This __dirname is generated as typescript couldnot find name __dirname directly mentioned in alias
 const __dirname = new URL('.', import.meta.url).pathname;
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), tsconfigPaths(), viteCompression()],
+  plugins: [
+    react(),
+    tsconfigPaths(),
+    viteCompression(),
+    svgr({
+      include: '**/*.svg?react',
+    }),
+  ],
   resolve: {
     alias: {
       '#components': path.resolve(__dirname, 'src/components'),

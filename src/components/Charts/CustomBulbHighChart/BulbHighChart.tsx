@@ -18,7 +18,8 @@ export const BulbHighChart = ({ title, data }: BulbHighChartProps) => {
       new Highcharts.Chart(container as HTMLElement, {
         chart: {
           type: 'pictorial',
-          margin: [40, 0, 10, 0],
+          margin: [50, 0, 10, 0],
+          backgroundColor: 'transparent',
         },
         colors: data.map((bulb) => bulb.color),
         title: {
@@ -45,10 +46,19 @@ export const BulbHighChart = ({ title, data }: BulbHighChartProps) => {
           margin: 0,
           padding: 0,
           verticalAlign: 'middle',
+          itemStyle: {
+            fontWeight: '600',
+            color: '#344054',
+          },
         },
         tooltip: {
           headerFormat: '',
           valueSuffix: '%',
+          backgroundColor: '#F9FAFB',
+          style: {
+            color: '#344054',
+            fontSize: '10px',
+          },
         },
         credits: {
           enabled: false,
@@ -78,5 +88,5 @@ export const BulbHighChart = ({ title, data }: BulbHighChartProps) => {
     }
   }, []);
 
-  return <div id="bulbContainer" style={{ height: '400px', width: '100%' }} />;
+  return <div id="bulbContainer" style={{ height: '320px', width: '100%' }} />;
 };

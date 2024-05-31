@@ -10,62 +10,18 @@ import {
 } from 'recharts';
 import { LayoutType } from 'recharts/types/util/types';
 
-type DataType =
-  | {
-      name: string;
-      male: number;
-      female: number;
-      total: number;
-    }
-  | (
-      | {
-          name: string;
-          totalCount: number;
-          menCount?: undefined;
-          womenCount?: undefined;
-        }
-      | {
-          name: string;
-          menCount: number;
-          totalCount?: undefined;
-          womenCount?: undefined;
-        }
-      | {
-          name: string;
-          womenCount: number;
-          totalCount?: undefined;
-          menCount?: undefined;
-        }
-    )
-  | {
-      name: string;
-      count: number;
-    }
-  | (
-      | {
-          name: string;
-          maleCount: number;
-          femaleCount?: undefined;
-        }
-      | {
-          name: string;
-          femaleCount: number;
-          maleCount?: undefined;
-        }
-    );
-
 type CustomTickStyleProps = {
   fontWeight?: number;
   fontSize?: string;
   color?: string;
 };
 
-type BarChartProps = {
+type BarChartProps<T> = {
   title: string;
   width?: string;
   height?: number;
   layout?: LayoutType | undefined;
-  data: DataType[];
+  data: T[];
   dataKeys?: string[];
   dataColors: string[];
   legendLabels?: string[];
@@ -85,7 +41,7 @@ const defaultTickStyle = {
 };
 
 // DEFAULT PROPS VALUE ADJUSTED TO DISPLAY VERTICALLY
-export const CustomBarChart = ({
+export const CustomBarChart = <T,>({
   title,
   width = '100%',
   height = 400,
@@ -100,7 +56,7 @@ export const CustomBarChart = ({
   yAxisDataKey = 'name',
   xAxisTick = defaultTickStyle,
   yAxisTick = false,
-}: BarChartProps) => {
+}: BarChartProps<T>) => {
   return (
     <div className="relative flex flex-col w-full py-[18px] px-6 gap-[15px]">
       <h3 className="text-sm font-bold text-tgray-600">{title}</h3>
@@ -121,7 +77,13 @@ export const CustomBarChart = ({
             ) : (
               <>
                 {dataKeys.map((key, index) => (
-                  <Bar key={key} dataKey={key} fill={dataColors[index]} />
+                  <Bar
+                    key={key}
+                    dataKey={key}
+                    fill={dataColors[index]}
+                    // barSize={30}
+                    // radius={[10, 10, 0, 0]}
+                  />
                 ))}
               </>
             )}

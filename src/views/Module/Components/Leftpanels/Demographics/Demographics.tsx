@@ -4,7 +4,6 @@ import Refresh from '#assets/svg/Refresh.svg';
 import { Button } from '#components/Button';
 import { Dropdown } from '#components/Dropdown';
 
-import { CustomBulbHighChart } from '#components/Charts/CustomBulbHighChart';
 import { DataContext } from '#contexts/context';
 import { downloadImage } from '#utils/utils';
 import { useContext, useRef, useState } from 'react';
@@ -19,9 +18,10 @@ export const Demographics = () => {
   const [chart, setChart] = useState<DemoGraphicChartKeys | 'All'>('All');
   const containerRef = useRef<HTMLDivElement>(null);
   const { slice } = useContext(DataContext);
+  console.log('Context-Demographics');
   return (
     <div className="flex flex-col gap-3">
-      <h2 className="text-4xl font-semibold text-tprimary-600">Demographics</h2>
+      <h2 className="text-4xl font-semibold text-tprimary-600">{slice}</h2>
       <p className="text-base text-tgray-700">
         Chandragiri Municipality is a vibrant administrative region nested in
         the Kathmandu Valley of Nepal. Situated on the southwestern outskirts of
@@ -69,18 +69,7 @@ export const Demographics = () => {
           dataColors={siteBarColor}
           yAxisTick={true}
         />
-        <CustomLineChart
-          title="Rainfall"
-          data={rainfallLineData}
-          dataKeys={rainLineKeys}
-          dataColors={rainlineColors}
-          legendLabels={rainlineLegends}
-        />
-        <CustomGauge value={80} min={0} max={180} bands={gaugeBandsData} />
-        <CustomStackChart />
-        <CustomScaleChart />
-      <CustomBarWithIcon /> */}
-        <CustomBulbHighChart />
+       */}
       </div>
     </div>
   );
